@@ -1,21 +1,30 @@
 import csv
 
 def add_todo(file_name):
-    print("add todo")
-    # ask the title of the todo 
-    todo_name = input("Enter title of todo: ")
+    print("Add todo")
+    # Ask the title of the todo
+    todo_name = input("Enter a todo: ")
     # Open file - list.csv
     with open(file_name, "a") as f:
         writer = csv.writer(f)
-          # insert values - title = users entered
-                    # - completed = false
+        # Insert values - title = user entered
+                      # - completed = False
         writer.writerow([todo_name, "False"])
 
 def remove_todo(file_name):
-    print("remove todo")
+    print("Remove todo")
 
 def mark_todo(file_name):
-    print("mark todo")
+    print("Mark todo")
 
 def view_todo(file_name):
-    print("view todo")
+    print("View todo")
+    with open(file_name, "r") as f:
+        reader = csv.reader(f)
+        reader.__next__()
+        for row in reader:
+            # row = ["Todo 1", "False"]
+            if (row[1] == "True"):
+                print(f"Todo {row[0]} is complete")
+            else:
+                print(f"Todo {row[0]} is not complete")
