@@ -3,22 +3,22 @@ from todo_functions import add_todo, remove_todo, mark_todo, view_todo
 file_name = "list.csv"
 
 try:
-    # Open the file in read more 
+    # open the file in read mode
     todo_file = open(file_name, "r")
     todo_file.close()
     print("In try block")
-    # if it throws error, it means file does not exist 
-    # If no error, it means the file exists 
+    # if it throws error, it means the file doesn't exist
+    # if no error, it means the file exist
 except FileNotFoundError:
-    # Now, we know the file does not exist 
-    # Create the file 
+    # Now, we know the file doesn't exist
+    # Create the file
     todo_file = open(file_name, "w")
     # We can also insert the first line into the file
     todo_file.write("title,completed\n")
     todo_file.close()
     print("In except block")
 
-print("Welcome to your todo list")
+print("Welcome to your TODO List")
 
 def create_menu():
     print("1. Enter 1 to add item to your list")
